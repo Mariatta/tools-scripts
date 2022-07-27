@@ -50,7 +50,7 @@ from googleapiclient.errors import HttpError
 from string import Template
 
 EMAIL_FROM = "Mariatta <mariatta@python.org>"
-EMAIL_CC = "" # FILL IT IN
+EMAIL_CC = ""  # FILL IT IN
 
 SUBJECT_CONFIRMED = "Attendance confirmation for Python Docs Diátaxis Workshop"
 SUBJECT_WAITLISTED = "Waitlisted for Python Docs Diátaxis Workshop"
@@ -223,7 +223,12 @@ class EmailSender:
 
         updated_event = (
             self.calendar_service.events()
-            .update(calendarId="primary", eventId=event_id, body=event, sendNotifications=True)
+            .update(
+                calendarId="primary",
+                eventId=event_id,
+                body=event,
+                sendNotifications=True,
+            )
             .execute()
         )
 
